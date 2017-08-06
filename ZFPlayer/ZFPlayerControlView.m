@@ -148,7 +148,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(self.backBtn.mas_trailing).offset(5);
+        make.leading.equalTo(self.backBtn.mas_trailing).offset(-30);
         make.centerY.equalTo(self.backBtn.mas_centerY);
         make.trailing.equalTo(self.resolutionBtn.mas_leading).offset(-10);
     }];
@@ -456,6 +456,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.leading.equalTo(self.topImageView.mas_leading).offset(10);
         make.width.height.mas_equalTo(40);
     }];
+    
+    self.titleLabel.hidden = NO;
 }
 /**
  *  设置竖屏的约束
@@ -473,6 +475,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     if (self.isCellVideo) {
         [self.backBtn setImage:ZFPlayerImage(@"ZFPlayer_close") forState:UIControlStateNormal];
     }
+    
+    self.titleLabel.hidden = YES;
 }
 
 #pragma mark - Private Method
@@ -565,6 +569,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_backBtn setImage:ZFPlayerImage(@"ZFPlayer_back_full") forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(backBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        _backBtn.hidden = YES;
     }
     return _backBtn;
 }
