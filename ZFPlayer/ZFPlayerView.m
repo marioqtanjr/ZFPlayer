@@ -1036,6 +1036,8 @@ typedef NS_ENUM(NSInteger, PanDirection){
         if (!self.isDragged) { // 如果不是拖拽中，直接结束播放
             self.playDidEnd = YES;
             [self.controlView zf_playerPlayEnd];
+            
+            if ([self.delegate respondsToSelector:@selector(zf_playerDidEnd)]) { [self.delegate zf_playerDidEnd]; }
         }
     }
 }
