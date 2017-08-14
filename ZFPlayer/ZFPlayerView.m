@@ -336,6 +336,20 @@ typedef NS_ENUM(NSInteger, PanDirection){
     [_player pause];
 }
 
+/**
+ * Mario: Get Current Time
+ */
+- (NSInteger)getCurrentTime {
+    return (NSInteger)CMTimeGetSeconds([self.player currentTime]);
+}
+
+/**
+ *
+ */
+- (BOOL)isReadyToPlay {
+    return (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay);
+}
+
 #pragma mark - Private Method
 
 /**

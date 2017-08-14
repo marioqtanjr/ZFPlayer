@@ -122,4 +122,14 @@ typedef NS_ENUM(NSInteger, ZFPlayerState) {
  */
 - (void)pause;
 
+/**
+ * Mario: Get Current Seek Time
+ */
+- (NSInteger)getCurrentTime;
+
+/**
+ *
+ */
+- (BOOL)isReadyToPlay;
+
 @end
